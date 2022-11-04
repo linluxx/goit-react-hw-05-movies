@@ -1,11 +1,17 @@
-import Home from 'pages/Home';
-import MovieDetails from 'pages/MovieDetails';
-import Movies from 'pages/Movies';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Cast from './Cast/Cast';
-import Layout from './Layout/Layout';
-import Reviews from './Reviews/Reviews';
+
 import { ToastContainer } from 'react-toastify';
+
+import Layout from './Layout/Layout';
+import NotFound from './NotFound/NotFound';
+
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const Movies = lazy(() => import('pages/Movies'));
+const Home = lazy(() => import('pages/Home'));
+// const NotFound = lazy(() => import('./NotFound/NotFound'));
 
 export const App = () => {
   return (
@@ -20,6 +26,7 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

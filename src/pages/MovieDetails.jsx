@@ -1,10 +1,11 @@
 import getMovies from 'API/getMovies';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState([]);
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     getMovies(`movie/${movieId}`).then(res => setFilmDetails(res.data));
@@ -15,6 +16,7 @@ const MovieDetails = () => {
   const date = new Date(release_date).getFullYear();
   return (
     <main>
+      <Link to={location.state?.from ?? '/movies'}>Return back</Link>
       <section>
         <img
           src={`https://image.tmdb.org/t/p/w400${poster_path}`}
@@ -37,13 +39,19 @@ const MovieDetails = () => {
         <h2>Additional information</h2>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: location.state.from }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: location.state.from }}>
+              Reviews
+            </Link>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </section>
     </main>
   );
