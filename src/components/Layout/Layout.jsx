@@ -1,7 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Header, List, Item, StyledLink } from './Layoutstyled';
+import { Comment } from 'react-loader-spinner';
+
+import { Header, List, Item, StyledLink, LoadingWrap } from './LayoutStyled';
 
 const Layout = () => {
   return (
@@ -18,7 +20,13 @@ const Layout = () => {
           </List>
         </nav>
       </Header>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <LoadingWrap>
+            <Comment backgroundColor="#F34A4A" height="150" width="150" />
+          </LoadingWrap>
+        }
+      >
         <Outlet />
       </Suspense>
     </div>

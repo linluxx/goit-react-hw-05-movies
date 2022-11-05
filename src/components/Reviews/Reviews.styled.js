@@ -14,6 +14,8 @@ const Item = styled.li`
 `;
 const Title = styled.h3`
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
 `;
 const Text = styled.p``;
 

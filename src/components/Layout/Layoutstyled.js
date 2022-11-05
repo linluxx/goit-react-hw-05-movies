@@ -35,4 +35,11 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export { Header, Navigation, List, Item, StyledLink };
+const LoadingWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+export { Header, Navigation, List, Item, StyledLink, LoadingWrap };

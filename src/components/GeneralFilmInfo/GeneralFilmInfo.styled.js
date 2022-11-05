@@ -35,6 +35,12 @@ const Title = styled.h2`
 `;
 const Text = styled.p`
   font-size: 18px;
+  display: flex;
 `;
 
-export { Container, Img, Section, MovieName, Text, Title };
+const Wrap = styled.span`
+  margin-right: 5px;
+  height: 25px;
+`;
+
+export { Container, Img, Section, MovieName, Text, Title, Wrap };

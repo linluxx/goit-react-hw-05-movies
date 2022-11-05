@@ -6,8 +6,9 @@ const Container = styled.main`
 `;
 
 const BackLink = styled(NavLink)`
-  display: block;
-  width: 100px;
+  display: flex;
+  align-items: center;
+  width: 130px;
   color: ${p => p.theme.color.secondText};
   background-color: ${p => p.theme.color.text};
   text-decoration: none;
@@ -16,10 +17,14 @@ const BackLink = styled(NavLink)`
   border-radius: 4px;
   margin-bottom: 15px;
   transition: ${p => p.theme.transition};
+
   :hover {
     background-color: ${p => p.theme.color.accent};
     color: ${p => p.theme.color.text};
   }
 `;
-
-export { BackLink, Container };
+const Wrap = styled.span`
+  margin-right: 5px;
+  height: 20px;
+`;
+export { BackLink, Container, Wrap };

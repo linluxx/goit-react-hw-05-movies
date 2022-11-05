@@ -18,8 +18,18 @@ const Input = styled.input`
 `;
 const SearchBtn = styled.button`
   height: 36px;
+  width: 40px;
+  padding: 0;
   border-radius: 0 4px 4px 0;
   border-color: transparent;
+  display: block;
+  background-color: ${p => p.theme.color.text};
+  color: ${p => p.theme.color.secondText};
+  size: 20;
+  transition: ${p => p.theme.transition};
+  &:hover {
+    color: ${p => p.theme.color.accent};
+  }
 `;
 
 export { SearchBtn, SearchForm, Input };

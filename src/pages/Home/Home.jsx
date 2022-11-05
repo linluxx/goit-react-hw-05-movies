@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <MovieList movies={films} location={location} />;
+      <MovieList movies={films} location={location} />
     </main>
   );
 };

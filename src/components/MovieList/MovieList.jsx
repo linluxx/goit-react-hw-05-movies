@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { List, Image, Item, StyledLink } from './MovieList.styled';
 
 const MovieList = ({ movies, location }) => {
@@ -21,3 +23,8 @@ const MovieList = ({ movies, location }) => {
 };
 
 export default MovieList;
+
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired,
+  location: PropTypes.object,
+};

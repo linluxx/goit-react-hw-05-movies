@@ -52,7 +52,7 @@ const Movies = () => {
       <SearchForm onSubmit={onMoviesSearch}>
         <Input type="text" name="query" placeholder="Search movies"></Input>
         <SearchBtn type="submit">
-          <RiSearch2Line />
+          <RiSearch2Line size={25} />
         </SearchBtn>
       </SearchForm>
       {movies.length !== 0 && <MovieList movies={movies} location={location} />}

@@ -1,28 +1,34 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
-import getMovies from 'API/getMovies';
-import InfoSection from 'components/InfoSection/InfoSection';
-import AddInfoSection from 'components/AddInfoSection/AddInfoSection';
+import { TbArrowBackUp } from 'react-icons/tb';
 
-import { BackLink, Container } from './MovieDetails.styled';
+import getMovies from 'API/getMovies';
+import GeneralFilmInfo from 'components/GeneralFilmInfo/GeneralFilmInfo';
+import AdditionalFilmInfo from 'components/AdditionalFilmInfo/AdditionalFilmInfo';
+
+import { BackLink, Container, Wrap } from './MovieDetails.styled';
 
 const MovieDetails = () => {
-  const [filmDetails, setFilmDetails] = useState([]);
+  const [filmDetails, setFilmDetails] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
 
   useEffect(() => {
     getMovies(`movie/${movieId}`).then(res => setFilmDetails(res.data));
   }, [movieId]);
-
   const backHref = location.state?.from ?? '/movies';
 
   return (
     <Container>
-      <BackLink to={backHref}>Return back</BackLink>
-      <InfoSection filmDetails={filmDetails} />
-      <AddInfoSection location={location} />
+      <BackLink to={backHref}>
+        <Wrap>
+          <TbArrowBackUp size={20} />
+        </Wrap>
+        Return back
+      </BackLink>
+      <GeneralFilmInfo filmDetails={filmDetails} />
+      <AdditionalFilmInfo location={location} />
     </Container>
   );
 };

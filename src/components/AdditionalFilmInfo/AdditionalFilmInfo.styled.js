@@ -38,5 +38,11 @@ const Title = styled.h2`
   font-size: 30px;
   color: ${p => p.theme.color.secondBg};
 `;
+const LoadingWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 
-export { Title, AddInfoLink, Section, List, Item };
+export { Title, AddInfoLink, Section, List, Item, LoadingWrap };

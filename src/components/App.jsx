@@ -11,7 +11,6 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
 const Movies = lazy(() => import('pages/Movies/Movies'));
 const Home = lazy(() => import('pages/Home/Home'));
-// const NotFound = lazy(() => import('./NotFound/NotFound'));
 
 export const App = () => {
   return (
