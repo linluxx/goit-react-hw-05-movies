@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Comment } from 'react-loader-spinner';
 
-import { Header, List, Item, StyledLink, LoadingWrap } from './LayoutStyled';
+import { Header, List, Item, StyledLink, LoadingWrap } from './Layout.styled';
 
 const Layout = () => {
   return (
