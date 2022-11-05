@@ -1,8 +1,14 @@
-import getMovies from 'API/getMovies';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { RiSearch2Line } from 'react-icons/ri';
+
+import MovieList from 'components/MovieList/MovieList';
+import getMovies from 'API/getMovies';
+
+import { SearchBtn, SearchForm, Input } from './Movies.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -23,6 +29,13 @@ const Movies = () => {
     evt.preventDefault();
     const search = evt.currentTarget.elements.query.value;
     setSearchParams({ search: search });
+    if (search.trim() === '') {
+      return toast.warn('Please fill out search field', {
+        autoClose: 2000,
+        theme: 'dark',
+      });
+    }
+
     getMovies('/search/movie', `query=${search}`).then(res => {
       if (res.data.results.length === 0) {
         toast.warn('Wrong search request. Please, try again', {
@@ -35,25 +48,15 @@ const Movies = () => {
   };
 
   return (
-    <>
-      <form onSubmit={onMoviesSearch}>
-        <input type="text" name="query" placeholder="Search movies"></input>
-        <button type="submit">Search</button>
-      </form>
-      {movies.length !== 0 && (
-        <ul>
-          {movies.map(({ title, id }) => {
-            return (
-              <li key={id}>
-                <Link to={`/movies/${id}`} state={{ from: location }}>
-                  {title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </>
+    <main>
+      <SearchForm onSubmit={onMoviesSearch}>
+        <Input type="text" name="query" placeholder="Search movies"></Input>
+        <SearchBtn type="submit">
+          <RiSearch2Line />
+        </SearchBtn>
+      </SearchForm>
+      {movies.length !== 0 && <MovieList movies={movies} location={location} />}
+    </main>
   );
 };
 

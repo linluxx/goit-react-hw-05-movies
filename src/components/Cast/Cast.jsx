@@ -1,6 +1,9 @@
-import getMovies from 'API/getMovies';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import getMovies from 'API/getMovies';
+
+import { List, Img, Item, Text, Title } from './Cast.styled';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -13,21 +16,25 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <List>
       {actors &&
         actors.map(({ profile_path, name, character, id }) => {
           return (
-            <li key={id}>
-              <img
+            <Item key={id}>
+              <Img
                 src={`https://image.tmdb.org/t/p/w200${profile_path}`}
                 alt={name}
               />
-              <p>Name: {name}</p>
-              <p>Character: {character}</p>
-            </li>
+              <Title>
+                Name: <Text>{name}</Text>
+              </Title>
+              <Title>
+                Character: <Text>{character}</Text>
+              </Title>
+            </Item>
           );
         })}
-    </ul>
+    </List>
   );
 };
 
