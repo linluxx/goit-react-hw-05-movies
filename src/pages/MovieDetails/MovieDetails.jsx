@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import { TbArrowBackUp } from 'react-icons/tb';
 
-import getMovies from 'api/getMovies';
+import getMovies from 'API/getMovies';
 import GeneralFilmInfo from 'components/GeneralFilmInfo/GeneralFilmInfo';
 import AdditionalFilmInfo from 'components/AdditionalFilmInfo/AdditionalFilmInfo';
 

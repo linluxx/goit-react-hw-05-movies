@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { RiSearch2Line } from 'react-icons/ri';
 
 import MovieList from 'components/MovieList/MovieList';
-import getMovies from 'api/getMovies';
+import getMovies from 'API/getMovies';
 
 import { SearchBtn, SearchForm, Input } from './Movies.styled';
 

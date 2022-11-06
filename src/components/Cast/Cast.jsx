@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import getMovies from 'api/getMovies';
+import getMovies from 'API/getMovies';
 import Image from '../../images/image_default.jpg';
 
 import { List, Img, Item, Text, Title } from './Cast.styled';
