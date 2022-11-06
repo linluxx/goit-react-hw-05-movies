@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import getMovies from 'API/getMovies';
+import getMovies from 'api/getMovies';
+import Image from '../../images/image_default.jpg';
 
 import { List, Img, Item, Text, Title } from './Cast.styled';
 
@@ -21,10 +22,15 @@ const Cast = () => {
         actors.map(({ profile_path, name, character, id }) => {
           return (
             <Item key={id}>
-              <Img
-                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                alt={name}
-              />
+              {profile_path ? (
+                <Img
+                  src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                  alt={name}
+                />
+              ) : (
+                <Img src={Image} alt={name} />
+              )}
+
               <Title>
                 Name: <Text>{name}</Text>
               </Title>

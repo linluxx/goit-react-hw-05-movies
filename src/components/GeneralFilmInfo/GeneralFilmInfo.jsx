@@ -15,11 +15,11 @@ import {
 const GeneralFilmInfo = ({ filmDetails }) => {
   const {
     poster_path,
-    title,
     original_title,
     release_date,
     overview,
     vote_average,
+    title,
     genres,
   } = filmDetails;
   const date = new Date(release_date).getFullYear();
@@ -57,7 +57,15 @@ const GeneralFilmInfo = ({ filmDetails }) => {
 };
 
 GeneralFilmInfo.propTypes = {
-  filmDetails: PropTypes.object.isRequired,
+  filmDetails: PropTypes.shape({
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    original_title: PropTypes.string,
+    release_date: PropTypes.string,
+    overview: PropTypes.string,
+    vote_average: PropTypes.number,
+    genres: PropTypes.array,
+  }),
 };
 
 export default GeneralFilmInfo;

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { TbMessageCircle } from 'react-icons/tb';
 import { TfiFaceSad } from 'react-icons/tfi';
 
-import getMovies from 'API/getMovies';
+import getMovies from 'api/getMovies';
 
 import { List, Item, Text, Title } from '../Reviews/Reviews.styled';
 

@@ -44,7 +44,13 @@ const AdditionalFilmInfo = ({ location }) => {
 };
 
 AdditionalFilmInfo.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    key: PropTypes.string,
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+    state: PropTypes.object,
+  }),
 };
 
 export default AdditionalFilmInfo;

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 
-import Layout from './Layout/Layout';
+import Layout from './UI/Layout/Layout';
 import NotFound from '../pages/NotFound/NotFound';
 
 const Cast = lazy(() => import('./Cast/Cast'));

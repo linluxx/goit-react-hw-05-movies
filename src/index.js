@@ -1,28 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { App } from 'components/App';
-import './index.css';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, Global, css } from '@emotion/react';
 
-const theme = {
-  color: {
-    mainBg: '#f1d3bc',
-    secondBg: '#262F34',
-    text: '#ffffff',
-    secondText: '#615049',
-    accent: '#F34A4A',
-  },
-  font: {
-    main: 'Raleway',
-    marker: 'Permanent Marker',
-  },
-  transition: 'all 250ms linear',
-};
+import theme from 'constants/theme';
+import globalStyles from 'constants/globalStyles';
+import { App } from 'components/App';
+// import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/goit-react-hw-05-movies">
+      <Global
+        styles={css`
+          ${globalStyles}
+        `}
+      />
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
